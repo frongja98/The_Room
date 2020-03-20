@@ -27,9 +27,8 @@ class BookingFragment : Fragment() {
 
     private val vm: BookingFragmentViewModel by viewModel()
 
-    private val buildingArray = arrayListOf("กรุณาเลือกตึก", "A", "B", "C")
+    private val buildingArray = arrayListOf("กรุณาเลือกตึก", "A", "B")
     private val bedTypeArray = arrayListOf("กรุณาเลือกเตียง", "เตียงเดี่ยว", "เตียงคู่")
-    private val peopleSizeArray = arrayListOf("กรุณาเลือกจำนวนคน", "3", "4", "9")
 
     private val bookingEntity = BookingEntity()
     private var mDay: Int = 0
@@ -64,10 +63,6 @@ class BookingFragment : Fragment() {
                     "A", "B" -> {
                         tv_bedType.text = "ประเภทห้อง"
                         sp_bedType.adapter = SpinnerAdapter(bedTypeArray)
-                    }
-                    "C" -> {
-                        tv_bedType.text = "จำนวนคน"
-                        sp_bedType.adapter = SpinnerAdapter(peopleSizeArray)
                     }
                 }
             }
@@ -129,7 +124,7 @@ class BookingFragment : Fragment() {
                 dialogAlert("กรุณาระบุชื่อผู้จอง")
             } else if (sp_buildingNumber.selectedItem.toString().trim() == "" || sp_buildingNumber.selectedItem.toString().trim() == buildingArray[0]) {
                 dialogAlert("กรุณาเลือกอาคาร")
-            } else if (sp_bedType.selectedItem.toString().trim() == "" || sp_bedType.selectedItem.toString().trim() == bedTypeArray[0] || sp_bedType.selectedItem.toString().trim() == peopleSizeArray[0]) {
+            } else if (sp_bedType.selectedItem.toString().trim() == "" || sp_bedType.selectedItem.toString().trim() == bedTypeArray[0] ) {
                 dialogAlert("กรุณาเลือกประเภทห้อง หรือระบุจำนวนคน")
             } else if (sp_roomNumber.selectedItem.toString().trim() == "") {
                 dialogAlert("กรุณาเลือกห้อง")
